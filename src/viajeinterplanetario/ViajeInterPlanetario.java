@@ -5,15 +5,15 @@ import java.util.Scanner;
 public class ViajeInterPlanetario {
     // Elementos necesarios
 
-    static Scanner scanner = new Scanner(System.in);
-    static String[] planetas = {"Marte"};
+    static Scanner read = new Scanner(System.in);
+    static String[] planetas = {"Marte, Júpiter"};
     static double[] distancias = {};
     static String[] naves = {};
     static double[] velocidades = {};
 
     public static void startTravel() {
 
-        Scanner read = new Scanner(System.in);
+       
         // Menú principal
 
         int option;
@@ -29,7 +29,7 @@ public class ViajeInterPlanetario {
 
                     break;
                 case 2:
-                    selectShip(0);
+                    selectShip();
 
                     break;
                 case 3:
@@ -46,8 +46,8 @@ public class ViajeInterPlanetario {
     private static void showMenu() {
 
         System.out.println("Menú:");
-        System.out.println("1. Opción 1");
-        System.out.println("2. Opción 2");
+        System.out.println("1. Planetas");
+        System.out.println("2. Naves");
         System.out.println("3. Salir");
         System.out.print("Elige una opción: ");
 
