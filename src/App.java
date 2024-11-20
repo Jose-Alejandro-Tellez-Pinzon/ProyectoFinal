@@ -5,7 +5,9 @@ public class App {
         
     ViajeInterPlanetario.startTravel();
 
-    System.out.println(123);
+    System.out.println("lo que yo quiera");
+
+
     
 
     }
