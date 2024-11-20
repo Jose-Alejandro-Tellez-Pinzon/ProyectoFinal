@@ -6,14 +6,13 @@ public class ViajeInterPlanetario {
     // Elementos necesarios
 
     static Scanner read = new Scanner(System.in);
-    static String[] planetas = {"Marte, Júpiter"};
-    static double[] distancias = {};
-    static String[] naves = {};
-    static double[] velocidades = {};
+    static String[] planets = { "Marte, Júpiter" };
+    static double[] distance = {78.0 , 628.0 , 1256.0};
+    static String[] ships = {};
+    static double[] speeds = {};
 
     public static void startTravel() {
 
-       
         // Menú principal
 
         int option;
@@ -25,7 +24,7 @@ public class ViajeInterPlanetario {
 
             switch (option) {
                 case 1:
-                    selectPlanet(0);
+                    showPlanet(0);
 
                     break;
                 case 2:
@@ -35,33 +34,47 @@ public class ViajeInterPlanetario {
                 case 3:
 
                     break;
+
+                case 4:
+                    showDistance(0);
+                    break;
                 default:
 
             }
-        } while (option != 3);
+        } while (option != 10);
         read.close();
 
     }
 
-    private static void showMenu() {
+    public static void showMenu() {
 
         System.out.println("Menú:");
-        System.out.println("1. Planetas");
-        System.out.println("2. Naves");
+        System.out.println("1. Planetas y sus descripciones ");
+        System.out.println("2. Naves y sus descripciones ");
+        System.out.println("4. Distancias");
         System.out.println("3. Salir");
         System.out.print("Elige una opción: ");
 
     }
 
-    private static void selectShip() {
+    public static void selectShip() {
 
     }
 
-    private static void selectPlanet(int position) {
+    public static void selectPlanet(int position) {
 
-        System.out.println("Estos son los planetas: " +planetas[position]);
 
-        
+
+    }
+
+    public static void showPlanet(int position) {
+
+        System.out.println("Estos son los planetas: " + planets[position]);
+    }
+
+    public static void showDistance(int position) {
+
+        System.out.println("Estas son las distancias hacia los planetas: " + distance[position]);
 
     }
 
