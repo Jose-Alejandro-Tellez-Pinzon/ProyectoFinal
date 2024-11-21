@@ -48,7 +48,7 @@ public class ViajeInterPlanetario {
 
     public static void showMenu() {
 
-        System.out.println("Menú:");
+        System.out.println("############Menú############");
         System.out.println("1. Planetas y sus descripciones ");
         System.out.println("2. Naves y sus descripciones ");
         System.out.println("4. Distancias");
