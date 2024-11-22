@@ -72,20 +72,6 @@ public class ViajeInterPlanetario {
     public static void selectPlanet(int position) {
 
 
-<<<<<<< HEAD
-=======
-
-    }
-
-    public static void showPlanet(int position) {
-
-        System.out.println("Estos son los planetas: " + planets[position]);
-    }
-
-    public static void showDistance(int position) {
-
-        System.out.println("Estas son las distancias hacia los planetas: " + distance[position]);
->>>>>>> main
 
     }
 
