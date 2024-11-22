@@ -24,7 +24,7 @@ public class ViajeInterPlanetario {
 
             switch (option) {
                 case 1:
-                    selectPlanet(0);
+                    showPlanet(0);
 
                     break;
                 case 2:
@@ -33,15 +33,19 @@ public class ViajeInterPlanetario {
                 case 3:
 
                     break;
+
+                case 4:
+                    showDistance(0);
+                    break;
                 default:
 
             }
-        } while (option != 3);
+        } while (option != 10);
         read.close();
 
     }
 
-    private static void showMenu() {
+    public static void showMenu() {
 
         System.out.println("/======> MENÚ <======\\");
         System.out.println("|  1.Elegir planeta  |");
@@ -65,7 +69,7 @@ public class ViajeInterPlanetario {
 
     }
 
-    private static void selectPlanet(int position) {
+    public static void selectPlanet(int position) {
 
         int option;
 
