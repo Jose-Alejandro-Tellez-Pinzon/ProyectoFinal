@@ -32,7 +32,7 @@ public class ViajeInterPlanetario {
 
             switch (option) {
                 case 1:
-                    showPlanet();
+                    
 
                     break;
                 case 2:
@@ -43,7 +43,7 @@ public class ViajeInterPlanetario {
                     break;
 
                 case 4:
-                    showDistance();
+                
                     break;
                 default:
 
