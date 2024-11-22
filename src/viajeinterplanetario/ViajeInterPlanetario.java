@@ -13,7 +13,7 @@ public class ViajeInterPlanetario {
     static double[] velocidades = {};
     static String[] descripcion = {};
 
-    // Descripción del planeta
+
 
     public static void startTravel() {
 
@@ -92,12 +92,34 @@ public class ViajeInterPlanetario {
         
         switch (option) {
             case 1:
-                System.out.println("Haz elegido marte");
+            System.out.println("Haz elegido Mercurio");
+                System.out.println("Es el planeta más cercano al Sol, es pequeño y muy caliente durante el día, su distancia desde la tierra es aproximadamente "+distancias[0]);
                 break;
             case 2:
-                System.out.println("haz elegido jupiter");
+                System.out.println("Haz elegido Venus");
+                System.out.println("Su tamaño es parecido a la Tierra, su atmósfera es tóxica y con temperaturas extremas, su distancia desde la tierra es aproximadamente "+distancias[1]);
                 break;
-
+            case 3:
+                System.out.println("Haz elegido Marte");
+                System.out.println("Es un planeta que tiene un color rojo, con montañas y cañones gigantes, es posible que tenga agua subterránea, su distancia desde la tierra es aproximadamente "+distancias[2]);
+                break;
+            case 4:
+                System.out.println("Haz elegido Jupiter");
+                System.out.println("Es el planeta mas grande del sistema solar y esta compuesto de gases, tiene una Gran Mancha Roja y muchas lunas, su distancia desde la tierra es aproximadamente "+distancias[3]);
+                break;
+            case 5:
+                System.out.println("Haz elegido Saturno");
+                System.out.println("Famoso por sus brillantes anillos compuestos de hielo y roca, tiene más de 80 lunas y es el planeta menos denso por lo que podria flotar en el agua, su distancia desde la tierra es aproximadamente "+distancias[4]);
+                break;
+            case 6:
+                System.out.println("Haz elegido Urano");
+                System.out.println("Es conocido como el gigante de hielo ya que es el planeta mas frio del sistema solar, con un tono azul verdoso debido al metano en su atmósfera, su distancia desde la tierra es aproximadamente "+distancias[5]);
+                break;
+            case 7:
+                System.out.println("Haz elegido Nepturno");
+                System.out.println("Es el planeta más lejano, frío y ventoso, de un color azul intenso, su distancia desde la tierra es aproximadamente "+distancias[6]);
+                break;
+        
             default:
 
                 break;
