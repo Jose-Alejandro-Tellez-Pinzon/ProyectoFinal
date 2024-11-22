@@ -61,7 +61,7 @@ public class ViajeInterPlanetario {
 
         System.out.println("Estos son los planetas: " +planetas[position]);
 
-        
+        System.out.println("Cosas de cosas");
 
     }
 
