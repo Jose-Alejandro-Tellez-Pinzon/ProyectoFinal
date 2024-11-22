@@ -32,11 +32,10 @@ public class ViajeInterPlanetario {
 
             switch (option) {
                 case 1:
-                    showPlanet(0);
+                    showPlanet();
 
                     break;
                 case 2:
-                    selectShip();
 
                     break;
                 case 3:
@@ -44,7 +43,7 @@ public class ViajeInterPlanetario {
                     break;
 
                 case 4:
-                    showDistance(0);
+                    showDistance();
                     break;
                 default:
 
@@ -56,22 +55,47 @@ public class ViajeInterPlanetario {
 
     public static void showMenu() {
 
-        System.out.println("############Menú############");
-        System.out.println("1. Planetas y sus descripciones ");
-        System.out.println("2. Naves y sus descripciones ");
-        System.out.println("4. Distancias");
-        System.out.println("3. Salir");
-        System.out.print("Elige una opción: ");
+        System.out.println("/======> MENÚ <======\\");
+        System.out.println("|  1.Elegir planeta  |");
+        System.out.println("|  2.Elegir nave     |");
+        System.out.println("|  3.Iniciar viaje   |");
+        System.out.println("|  0.Salir           |");
+        System.out.println("|\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/|");
+        System.out.print("Elegir opción: ");
 
     }
 
-    public static void selectShip() {
+    private static void showShips() {
+
+        System.out.println("---> Marte");
+        System.out.println("---> Júpiter");
+        System.out.println("---> Urano");
+        System.out.println("---> Mercurio");
+        System.out.println("0. Salir");
+        System.out.println("########################################");
+        System.out.print("Elegir opción: ");
 
     }
 
     public static void selectPlanet(int position) {
 
+        int option;
 
+        showShips();
+        option = read.nextInt();
+
+        switch (option) {
+            case 1:
+                System.out.println("Haz elegido marte");
+                break;
+            case 2:
+                System.out.println("haz elegido jupiter");
+                break;
+
+            default:
+
+                break;
+        }
 
     }
 
