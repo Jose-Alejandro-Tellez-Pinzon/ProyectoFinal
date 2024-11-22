@@ -6,14 +6,13 @@ public class ViajeInterPlanetario {
     // Elementos necesarios
 
     static Scanner read = new Scanner(System.in);
-    static String[] planetas = {"Marte, Júpiter"};
-    static double[] distancias = {};
-    static String[] naves = {};
-    static double[] velocidades = {};
+    static String[] planets = { "Marte, Júpiter" };
+    static double[] distance = {};
+    static String[] ships = {};
+    static double[] speed = {};
 
     public static void startTravel() {
 
-       
         // Menú principal
 
         int option;
@@ -29,7 +28,6 @@ public class ViajeInterPlanetario {
 
                     break;
                 case 2:
-                    selectShip();
 
                     break;
                 case 3:
@@ -45,23 +43,47 @@ public class ViajeInterPlanetario {
 
     private static void showMenu() {
 
-        System.out.println("Menú:");
-        System.out.println("1. Planetas");
-        System.out.println("2. Naves");
-        System.out.println("3. Salir");
-        System.out.print("Elige una opción: ");
+        System.out.println("/======> MENÚ <======\\");
+        System.out.println("|  1.Elegir planeta  |");
+        System.out.println("|  2.Elegir nave     |");
+        System.out.println("|  3.Iniciar viaje   |");
+        System.out.println("|  0.Salir           |");
+        System.out.println("|\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/|");
+        System.out.print("Elegir opción: ");
 
     }
 
-    private static void selectShip() {
+    private static void showShips() {
+
+        System.out.println("---> Marte");
+        System.out.println("---> Júpiter");
+        System.out.println("---> Urano");
+        System.out.println("---> Mercurio");
+        System.out.println("0. Salir");
+        System.out.println("########################################");
+        System.out.print("Elegir opción: ");
 
     }
 
     private static void selectPlanet(int position) {
 
-        System.out.println("Estos son los planetas: " +planetas[position]);
+        int option;
 
-        System.out.println("Cosas de cosas");
+        showShips();
+        option = read.nextInt();
+
+        switch (option) {
+            case 1:
+                System.out.println("Haz elegido marte");
+                break;
+            case 2:
+                System.out.println("haz elegido jupiter");
+                break;
+
+            default:
+
+                break;
+        }
 
     }
 
