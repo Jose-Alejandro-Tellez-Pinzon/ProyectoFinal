@@ -6,10 +6,18 @@ public class ViajeInterPlanetario {
     // Elementos necesarios
 
     static Scanner read = new Scanner(System.in);
-    static String[] planets = { "Marte, Júpiter" };
-    static double[] distance = {78.0 , 628.0 , 1256.0};
-    static String[] ships = {};
-    static double[] speeds = {};
+    static String[] planetas = {"Mercurio", "Venus", "Marte", "Júpiter", "Saturno", "Urano", "Neptuno"};
+    static String[] distancias = {"91.7 millones de km","41,4 millones de km", "78,3 millones de km", "628,7 millones de km", "1.275 millones de km", "2.724 millones de km", "4.351 millones de km"};
+    static String[] naves = {};
+    static double[] velocidades = {};
+    static String[] descripcion = {};
+
+     
+    
+    // Descripción del planeta
+
+
+
 
     public static void startTravel() {
 
@@ -64,6 +72,8 @@ public class ViajeInterPlanetario {
     public static void selectPlanet(int position) {
 
 
+<<<<<<< HEAD
+=======
 
     }
 
@@ -75,6 +85,7 @@ public class ViajeInterPlanetario {
     public static void showDistance(int position) {
 
         System.out.println("Estas son las distancias hacia los planetas: " + distance[position]);
+>>>>>>> main
 
     }
 

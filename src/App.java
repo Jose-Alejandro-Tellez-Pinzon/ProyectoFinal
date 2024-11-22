@@ -3,10 +3,7 @@ import viajeinterplanetario.ViajeInterPlanetario;
 public class App {
     public static void main(String[] args) throws Exception {
         
-    ViajeInterPlanetario.startTravel();
-
-    System.out.println(123);
-    
+    ViajeInterPlanetario.startTravel();    
 
     }
 }
