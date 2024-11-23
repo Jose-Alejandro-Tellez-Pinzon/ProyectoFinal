@@ -1,8 +1,11 @@
 package viajeinterplanetario;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class ViajeInterPlanetario {
+
+    
     // Elementos necesarios
 
     static Scanner read = new Scanner(System.in);
@@ -12,8 +15,9 @@ public class ViajeInterPlanetario {
     static String[] naves = {};
     static double[] velocidades = {};
     static String[] descripcion = {};
+    static Random random = new Random();  
 
-
+        
 
     public static void startTravel() {
 
@@ -127,4 +131,35 @@ public class ViajeInterPlanetario {
 
     } // hasta aqui 
 
-}
+    public static void eventosAletorios(){
+
+        int eventoAletorio = random.nextInt(3);
+
+        switch (eventoAletorio) {
+            case 0:
+                System.out.println("Un meteorito golpeo la nave, por favor evalue el daño externo y realice una reparación si es necesario. ");
+                break;
+
+            case 1:
+                 System.out.println("Se ha detectado una fuga de oxígeno en la nave, por favor activa el sistema de sellado automático y revisa los niveles de oxígeno. ");
+            
+             case 2:
+                System.out.println("El motor principal está sobrecalentado, por favor reduzca la potencia del motor y active el sistema de enfriamiento. ");
+
+            default:
+                System.out.println("Todos los sistemas de la nave estan funcionando correctamente. ");
+
+                    }
+    } 
+    
+    public static void solucionEventosAleatorios(){
+
+        var solucion = read.next();
+
+        System.out.println("Para solucionar los problemas con la nave de forma automatica, presiona ENTER. ");
+
+
+    }
+}  
+
+
