@@ -8,44 +8,44 @@ public class ViajeInterPlanetario {
     // Elementos necesarios
 
     static Scanner read = new Scanner(System.in);
-    static String[] planetas = { "Mercurio", "Venus", "Marte", "Júpiter", "Saturno", "Urano", "Neptuno" };
-    static String[] distancias = { "91.7 millones de km", "41,4 millones de km", "78,3 millones de km",
+    static String[] planets = { "Mercurio", "Venus", "Marte", "Júpiter", "Saturno", "Urano", "Neptuno" };
+    static String[] distances = { "91.7 millones de km", "41,4 millones de km", "78,3 millones de km",
             "628,7 millones de km", "1.275 millones de km", "2.724 millones de km", "4.351 millones de km" };
-    static String[] naves = {};
-    static double[] velocidades = {};
-    static String[] descripcion = {};
+    static String[] ships = { "Argos", "Deméter", "Pegasus" };
+    static double[] speed = {};
     static Random random = new Random();
+    static boolean exit = false;
 
-    public static void startTravel() {
-
-        // Menú principal
+    public static void travel() {
 
         int option;
 
         do {
-
             showMenu();
             option = read.nextInt();
-
             switch (option) {
+                case 0:
+                    exit = true;
+
+                    break;
                 case 1:
                     selectPlanet();
 
                     break;
                 case 2:
+                    showShip();
 
                     break;
                 case 3:
-
-                    break;
-
-                case 4:
-
+                    startTravel();
                     break;
                 default:
+                    System.err.println("Opción incorrecta");
 
             }
-        } while (option != 10);
+        } while (!exit);
+        System.out.println();
+        System.out.println("--[!Gracias por utilizar el programa¡]--");
         read.close();
 
     }
@@ -70,18 +70,35 @@ public class ViajeInterPlanetario {
     private static void showtPlanet() {
 
         System.out.println(" _________________");
-        System.out.println("|_____PLANETAS____|");
-        System.out.println("|                 |");
-        System.out.println("|~~~> 1. Mercurio |");
-        System.out.println("|~~~> 2. Venus    |");
-        System.out.println("|~~~> 3. Marte    |");
-        System.out.println("|~~~> 4. Júpiter  |");
-        System.out.println("|~~~> 5. Saturno  |");
-        System.out.println("|~~~> 6. Urano    |");
-        System.out.println("|~~~> 7. Neptuno  |");
-        System.out.println("|_________________|");
+        System.out.println("|___[PLANETAS]___|");
+        System.out.println("|                |");
+        System.out.println("|~~> 1. Mercurio |");
+        System.out.println("|~~> 2. Venus    |");
+        System.out.println("|~~> 3. Marte    |");
+        System.out.println("|~~> 4. Júpiter  |");
+        System.out.println("|~~> 5. Saturno  |");
+        System.out.println("|~~> 6. Urano    |");
+        System.out.println("|~~> 7. Neptuno  |");
+        System.out.println("|________________|");
         System.out.println();
-        System.out.print("====> Elegir opción: ");
+        System.out.print("====> Elegir un planeta: ");
+
+    }
+
+    public static void showShip() {
+
+        System.out.println(" ______________________ ");
+        System.out.println("|________[NAVES]_______|");
+        System.out.println("|                      |");
+        System.out.println("|~~~> 1. Nave Argos    |");
+        System.out.println("|~~~> 2. Nave Deméter  |");
+        System.out.println("|~~~> 3. Nave Pegasus  |");
+        System.out.println("|______________________|");
+        System.out.println();
+        System.out.println("===> Elegir una nave: ");
+    }
+
+    public static void startTravel() {
 
     }
 
@@ -93,53 +110,74 @@ public class ViajeInterPlanetario {
 
         switch (option) {
             case 1:
-                System.out.println("Haz elegido Mercurio");
+                System.out.println();
+                System.out.println("~~[Haz elegido " + planets[0] + "]~~");
                 System.out.println(
-                        "Es el planeta más cercano al Sol, es pequeño y muy caliente durante el día, su distancia desde la tierra es aproximadamente "
-                                + distancias[0]);
+                        " Es el planeta más cercano al Sol, es pequeño y muy caliente durante el día, su distancia desde la tierra es aproximadamente "
+                                + distances[0]);
                 break;
             case 2:
-                System.out.println("Haz elegido Venus");
+                System.out.println();
+                System.out.println("~~[Haz elegido " + planets[1] + "]~~");
                 System.out.println(
                         "Su tamaño es parecido a la Tierra, su atmósfera es tóxica y con temperaturas extremas, su distancia desde la tierra es aproximadamente "
-                                + distancias[1]);
+                                + distances[1]);
                 break;
             case 3:
-                System.out.println("Haz elegido Marte");
+                System.out.println();
+                System.out.println("~~[Haz elegido " + planets[2] + "]~~");
                 System.out.println(
                         "Es un planeta que tiene un color rojo, con montañas y cañones gigantes, es posible que tenga agua subterránea, su distancia desde la tierra es aproximadamente "
-                                + distancias[2]);
+                                + distances[2]);
                 break;
             case 4:
-                System.out.println("Haz elegido Jupiter");
+                System.out.println();
+                System.out.println("~~[Haz elegido " + planets[3] + "]~~");
                 System.out.println(
                         "Es el planeta mas grande del sistema solar y esta compuesto de gases, tiene una Gran Mancha Roja y muchas lunas, su distancia desde la tierra es aproximadamente "
-                                + distancias[3]);
+                                + distances[3]);
                 break;
             case 5:
-                System.out.println("Haz elegido Saturno");
+                System.out.println();
+                System.out.println("~~[Haz elegido " + planets[4] + "]~~");
                 System.out.println(
                         "Famoso por sus brillantes anillos compuestos de hielo y roca, tiene más de 80 lunas y es el planeta menos denso por lo que podria flotar en el agua, su distancia desde la tierra es aproximadamente "
-                                + distancias[4]);
+                                + distances[4]);
                 break;
             case 6:
-                System.out.println("Haz elegido Urano");
+                System.out.println();
+                System.out.println("~~[Haz elegido " + planets[5] + "]~~");
                 System.out.println(
                         "Es conocido como el gigante de hielo ya que es el planeta mas frio del sistema solar, con un tono azul verdoso debido al metano en su atmósfera, su distancia desde la tierra es aproximadamente "
-                                + distancias[5]);
+                                + distances[5]);
                 break;
             case 7:
-                System.out.println("Haz elegido Nepturno");
+                System.out.println();
+                System.out.println("~~[Haz elegido " + planets[6] + "]~~");
                 System.out.println(
                         "Es el planeta más lejano, frío y ventoso, de un color azul intenso, su distancia desde la tierra es aproximadamente "
-                                + distancias[6]);
+                                + distances[6]);
                 break;
 
             default:
-
+                System.err.println("Planeta no valido");
                 break;
         }
 
+    }
+
+    public static void selectShip() {
+        int option;
+        showShip();
+        option = read.nextInt();
+        switch (option) {
+            case 1:
+
+                break;
+
+            default:
+                break;
+        }
     }
 
     public static void eventosAletorios() {
