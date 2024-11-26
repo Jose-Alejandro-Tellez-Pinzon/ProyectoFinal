@@ -111,15 +111,54 @@ public class ViajeInterPlanetario {
 
     public static void startTravel() {
 
-        System.out.println("""
-                |=====================================|
-                |=  ======> INICIO DEL VIAJE <=====  =|
-                |=====================================|
-                """);
+        Random random = new Random();
+        read.nextLine();
+        for (int progress = 0; progress <= 100; progress += 10) {
+            if (progress == 0) {
+                System.out.println("""
+                        |=====================================|
+                        |=========> INICIO DEL VIAJE <========|
+                        |=====================================|
+                        """);
+            }
+            if (progress == 20) {
+                System.out.println("""
+                        |=====================================|
+                        |=========> VIAJE EN PROCESO <========|
+                        |=====================================|
+                        """);
+            }
+            if (progress == 50) {
+                System.out.println("""
+                        |=====================================|
+                        |=========> MITAD DEL VIAJE <=========|
+                        |=====================================|
+                        """);
 
-        for (int i = 0; i < loading.length; i += 10) {
+                if (random.nextInt(10) < 3) {
+                    System.out.println("""
+                                   [!ALERTA¡] [!ALERTA¡] [!ALERTA¡] [!ALERTA¡] [!ALERTA¡] [!ALERTA¡]
 
-            System.out.print(i + "%-");
+                            ~~~~~[Lluvia de meteoritos] [Lluvia de meteoritos] [Lluvia de meteoritos]~~~~ """);
+
+                    randomEventsSolution();
+                }
+            }
+            if (progress == 70) {
+                System.out.println("""
+                        |=====================================|
+                        |=========> VIAJE EN PROCESO <========|
+                        |=====================================|
+                        """);
+            }
+            if (progress == 100) {
+                System.out.println("""
+                        |=====================================|
+                        |======> HAZ LLEGADO AL DESTINO <=====|
+                        |=====================================|
+                        """);
+
+            }
 
         }
 
@@ -223,15 +262,17 @@ public class ViajeInterPlanetario {
         return selectShip;
     }
 
-    
-    
-
     public static void randomEventsSolution() {
 
-        var solution = read.next();
+        System.out.println();
+        System.out.println(" _____________________________________________________________________________");
+        System.out.println("|Para solucionar los problemas con la nave de forma automatica, presiona ENTER|");
+        System.out.println("|_____________________________________________________________________________|");
 
-        System.out.println("Para solucionar los problemas con la nave de forma automatica, presiona ENTER. ");
+        var solution = read.nextLine();
 
     }
+
+    
 
 }
