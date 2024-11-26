@@ -15,15 +15,16 @@ public class ViajeInterPlanetario {
     static String[] ships = { "Elyón", "Argos", "Deméter", };
     static double[] speed = { 50.000, 28.000, 30.000 };
 
-    static double[] oxygen = { 1.209, 100.8 , 453.6 };
-    static double[] fuel = { 450, 250, 350 };
+    // static double[] oxygen = { 1.209, 100.8 , 453.6 };
+    static double[] consumedFuel = { 450, 250, 350 };
 
-    
-    
+    static int selectedShip;
+    static int selectedPlanet;
+
     static int[] loading = new int[101];
 
-    //eventos aletorios
-    
+    // eventos aletorios
+
     static boolean exit = false;
 
     public static void travel() {
@@ -110,7 +111,7 @@ public class ViajeInterPlanetario {
     }
 
     public static void startTravel() {
-
+        calculateResourse();
         Random random = new Random();
         read.nextLine();
         for (int progress = 0; progress <= 100; progress += 10) {
@@ -164,7 +165,7 @@ public class ViajeInterPlanetario {
 
     }
 
-    public static void selectPlanet() {
+    public static int selectPlanet() {
 
         int option;
         showtPlanet();
@@ -175,8 +176,7 @@ public class ViajeInterPlanetario {
                 System.out.println();
                 System.out.println("~~[Haz elegido " + planets[0] + "]~~");
                 System.out.println(
-                        " Es el planeta más cercano al Sol, es pequeño y muy caliente durante el día, su distancia desde la tierra es aproximadamente "
-                                + distances[0]);
+                        " Es el planeta más cercano al Sol, es pequeño y muy caliente durante el día, su distancia desde la tierra es aproximadamente "  + distances[0]);
                 break;
             case 2:
                 System.out.println();
@@ -225,6 +225,7 @@ public class ViajeInterPlanetario {
                 System.err.println("Planeta no valido");
                 break;
         }
+        return selectedPlanet;
 
     }
 
@@ -238,19 +239,24 @@ public class ViajeInterPlanetario {
             case 1:
                 System.out.println();
                 System.out.println("~~[Haz elegido " + ships[0] + "]~~");
-                System.out.println("Elyón es la nave más poderosa que tenemos, esta nave tiene una capacidad máxima de 8 tripulantes, tiene una capacidad de " + oxygen[0] + " kg de oxigeno para alrededor de 6 meses, tambien cuenta con una capacidad de 45 toneladas de combustible y su velocidad es" + speed[0]);
+                System.out.println(
+                        "Elyón es la nave más poderosa que tenemos, esta nave tiene una capacidad máxima de 8 tripulantes, tiene una capacidad de kg de oxigeno para alrededor de 6 meses, tambien cuenta con una capacidad de 45 toneladas de combustible y su velocidad es "
+                                + speed[0]);
                 break;
 
             case 2:
                 System.out.println();
                 System.out.println("~~[Haz elegido " + ships[1] + "]~~");
-                System.out.println("Esta nave esta diseñada para carga útil por lo cual el máximo de tripulantes es de 4 personas. Su capacidad de oxigeno es " + oxygen[1] + " kg para un solo mes. Su capacidad de combustible es 25 toneladas y cuenta con una velocidad de " + speed[1]);
+                System.out.println(
+                        "Esta nave esta diseñada para carga útil por lo cual el máximo de tripulantes es de 4 personas. Su capacidad de oxigeno es kg para un solo mes. Su capacidad de combustible es 25 toneladas y cuenta con una velocidad de "
+                                + speed[1]);
                 break;
 
             case 3:
                 System.out.println();
                 System.out.println("~~[Haz elegido " + ships[2] + "]~~");
-                System.out.println("Deméter cuenta con un sistema de soporte vital avanzado, tiene una capacidad de 6 tripulantes, cuenta con una capacidad de " + oxygen[2] + "kg de oxigeno para al rededor de 3 meses, tambien cuenta con una capacidad de 35 toneladas de combustible y su velocidad es:"
+                System.out.println(
+                        "Deméter cuenta con un sistema de soporte vital avanzado, tiene una capacidad de 6 tripulantes, cuenta con una capacidad de kg de oxigeno para al rededor de 3 meses, tambien cuenta con una capacidad de 35 toneladas de combustible y su velocidad es "
                                 + speed[2]);
                 break;
 
@@ -259,7 +265,7 @@ public class ViajeInterPlanetario {
                 break;
         }
 
-        return selectShip;
+        return selectedShip;
     }
 
     public static void randomEventsSolution() {
@@ -268,11 +274,18 @@ public class ViajeInterPlanetario {
         System.out.println(" _____________________________________________________________________________");
         System.out.println("|Para solucionar los problemas con la nave de forma automatica, presiona ENTER|");
         System.out.println("|_____________________________________________________________________________|");
+       
 
         var solution = read.nextLine();
 
     }
 
-    
+    public static void calculateResourse() {
+
+        double fuel = consumedFuel [selectedShip];
+        double oxygen = distances [selectedPlanet] * 100;
+        System.out.println("El combustible necesario para el viaje es: " + fuel);
+        System.out.println("La cantidad de oxigeno necesaria para este viaje es de: " + oxygen);
+    }
 
 }
