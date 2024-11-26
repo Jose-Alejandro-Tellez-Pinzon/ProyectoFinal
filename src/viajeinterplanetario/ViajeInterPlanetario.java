@@ -8,13 +8,17 @@ public class ViajeInterPlanetario {
     // Elementos necesarios
 
     static Scanner read = new Scanner(System.in);
+
     static String[] planets = { "Mercurio", "Venus", "Marte", "Júpiter", "Saturno", "Urano", "Neptuno" };
-    static String[] distances = { "91.7 millones de km", "41,4 millones de km", "78,3 millones de km",
-            "628,7 millones de km", "1.275 millones de km", "2.724 millones de km", "4.351 millones de km" };
+    static double[] distances = { 91.7, 41.4, 78.3, 628.7, 1.275, 2.724, 4.351 };
+
     static String[] ships = { "Elyón", "Argos", "Deméter", };
-    static String[] speed = { "50.000 km/h", "28.000 km/h", "30.000 km/h" };
+    static double[] speed = { 50.000, 28.000, 30.000 };
+
     static Random random = new Random();
+    
     static int[] loading = new int[101];
+    
     static boolean exit = false;
 
     public static void travel() {
@@ -108,9 +112,9 @@ public class ViajeInterPlanetario {
                 |=====================================|
                 """);
 
-        for (int i = 1; i < loading.length; i++) {
+        for (int i = 0; i < loading.length; i += 10) {
 
-            System.out.print( i+ "%-"  );
+            System.out.print(i + "%-");
 
         }
 
@@ -180,7 +184,7 @@ public class ViajeInterPlanetario {
 
     }
 
-    public static void selectShip() {
+    public static int selectShip() {
 
         int option;
         showShip();
@@ -212,9 +216,11 @@ public class ViajeInterPlanetario {
                 break;
 
             default:
-            System.err.println("Opcion no valida");
+                System.err.println("Opcion no valida");
                 break;
         }
+
+        return selectShip;
     }
 
     public static void eventosAletorios() {
@@ -230,22 +236,23 @@ public class ViajeInterPlanetario {
             case 1:
                 System.out.println(
                         "Se ha detectado una fuga de oxígeno en la nave, por favor activa el sistema de sellado automático y revisa los niveles de oxígeno. ");
-
+                break;
             case 2:
                 System.out.println(
                         "El motor principal está sobrecalentado, por favor reduzca la potencia del motor y active el sistema de enfriamiento. ");
-
+                break;
             default:
                 System.out.println("Todos los sistemas de la nave estan funcionando correctamente. ");
 
         }
     }
 
-    public static void solucionEventosAleatorios() {
+    public static void randomEventsSolution() {
 
-        var solucion = read.next();
+        var solution = read.next();
 
         System.out.println("Para solucionar los problemas con la nave de forma automatica, presiona ENTER. ");
 
     }
+
 }
