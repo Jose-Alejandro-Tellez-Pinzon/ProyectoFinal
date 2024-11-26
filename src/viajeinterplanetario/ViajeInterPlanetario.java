@@ -15,6 +15,15 @@ public class ViajeInterPlanetario {
     static String[] ships = { "Elyón", "Argos", "Deméter", };
     static double[] speed = { 50.000, 28.000, 30.000 };
 
+    static double[] oxygen = { 1.209, 100.8 , 453.6 };
+    static double[] fuel = { 450, 250, 350 };
+
+    
+    
+    static int[] loading = new int[101];
+
+    //eventos aletorios
+    
     static boolean exit = false;
 
     public static void travel() {
@@ -229,24 +238,19 @@ public class ViajeInterPlanetario {
             case 1:
                 System.out.println();
                 System.out.println("~~[Haz elegido " + ships[0] + "]~~");
-                System.out.println(
-                        "Elyón tiene un sistema de generación de oxígeno mediante agua y reacciones químicas,  su capacidad para mantener el aire a niveles ideales es para 8 personas durante 6 meses, ya que esta es su capacidad de tripulantes. Puede llevar 15.000 litros de combustible de hidrógeno y oxígeno líquido, adicionalmente utiliza propulsión química y propulsión a base de iones para viajes interplanetarios. Su capacidad de peso es de 12.000 kg principalmente para equipos científicos y suministros. Su velocidad es "
-                                + speed[0]);
+                System.out.println("Elyón es la nave más poderosa que tenemos, esta nave tiene una capacidad máxima de 8 tripulantes, tiene una capacidad de " + oxygen[0] + " kg de oxigeno para alrededor de 6 meses, tambien cuenta con una capacidad de 45 toneladas de combustible y su velocidad es" + speed[0]);
                 break;
 
             case 2:
                 System.out.println();
                 System.out.println("~~[Haz elegido " + ships[1] + "]~~");
-                System.out.println(
-                        "La nave genera oxígeno a partir de tanques de oxígeno comprimidos y un sistema de filtrado para aire recircular, lo que permite mantener el aire en niveles adecuados pata 4 personas durante 30 días, ya que esta es su capacidad de tripulantes. Su propulsión química utiliza hidrógeno y oxígeno líquido con una capacidad de combustible de 4.000 litros de propulsante. La capacidad de peso de la nave es de 10.000 kg principalmente para carga útil. Su velocidad es "
-                                + speed[1]);
+                System.out.println("Esta nave esta diseñada para carga útil por lo cual el máximo de tripulantes es de 4 personas. Su capacidad de oxigeno es " + oxygen[1] + " kg para un solo mes. Su capacidad de combustible es 25 toneladas y cuenta con una velocidad de " + speed[1]);
                 break;
 
             case 3:
                 System.out.println();
                 System.out.println("~~[Haz elegido " + ships[2] + "]~~");
-                System.out.println(
-                        "Deméter cuenta con un sistema de soporte vital avanzado el cual genera oxígeno a partir del agua (electrólisis), puede mantener el aire en niveles óptimos para 6 personas durante 3 meses ya que esa es su capacidad de pasajeros, su capacidad de combustible es de 10.000 litros de hidrógeno y oxígeno líquidos, cuenta con propulsión de iones y combustible nuclear de uranio. Su capacidad de peso es de 5.000 kg (carga útil)"
+                System.out.println("Deméter cuenta con un sistema de soporte vital avanzado, tiene una capacidad de 6 tripulantes, cuenta con una capacidad de " + oxygen[2] + "kg de oxigeno para al rededor de 3 meses, tambien cuenta con una capacidad de 35 toneladas de combustible y su velocidad es:"
                                 + speed[2]);
                 break;
 
