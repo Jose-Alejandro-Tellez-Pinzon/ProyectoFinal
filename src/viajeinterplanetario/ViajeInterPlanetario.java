@@ -8,12 +8,17 @@ public class ViajeInterPlanetario {
     // Elementos necesarios
 
     static Scanner read = new Scanner(System.in);
+
     static String[] planets = { "Mercurio", "Venus", "Marte", "Júpiter", "Saturno", "Urano", "Neptuno" };
-    static String[] distances = { "91.7 millones de km", "41,4 millones de km", "78,3 millones de km",
-            "628,7 millones de km", "1.275 millones de km", "2.724 millones de km", "4.351 millones de km" };
+    static double[] distances = { 91.7, 41.4, 78.3, 628.7, 1.275, 2.724, 4.351 };
+
     static String[] ships = { "Elyón", "Argos", "Deméter", };
-    static String[] speed = { "50.000 km/h", "28.000 km/h", "30.000 km/h"};
+    static double[] speed = { 50.000, 28.000, 30.000 };
+
     static Random random = new Random();
+    
+    static int[] loading = new int[101];
+    
     static boolean exit = false;
 
     public static void travel() {
@@ -33,7 +38,7 @@ public class ViajeInterPlanetario {
 
                     break;
                 case 2:
-                    showShip();
+                    selectShip();
 
                     break;
                 case 3:
@@ -52,6 +57,7 @@ public class ViajeInterPlanetario {
 
     public static void showMenu() {
 
+        System.out.println();
         System.out.println(" ______________________");
         System.out.println("/_____________________/|");
         System.out.println("|       ______       | |");
@@ -95,10 +101,22 @@ public class ViajeInterPlanetario {
         System.out.println("|~~~> 3. Nave Pegasus  |");
         System.out.println("|______________________|");
         System.out.println();
-        System.out.println("===> Elegir una nave: ");
+        System.out.print("===> Elegir una nave: ");
     }
 
     public static void startTravel() {
+
+        System.out.println("""
+                |=====================================|
+                |=  ======> INICIO DEL VIAJE <=====  =|
+                |=====================================|
+                """);
+
+        for (int i = 0; i < loading.length; i += 10) {
+
+            System.out.print(i + "%-");
+
+        }
 
     }
 
@@ -166,7 +184,7 @@ public class ViajeInterPlanetario {
 
     }
 
-    public static void selectShip() {
+    public static int selectShip() {
 
         int option;
         showShip();
@@ -174,29 +192,35 @@ public class ViajeInterPlanetario {
 
         switch (option) {
             case 1:
-            System.out.println();
+                System.out.println();
                 System.out.println("~~[Haz elegido " + ships[0] + "]~~");
-                System.out.println("Elyón tiene un sistema de generación de oxígeno mediante agua y reacciones químicas,  su capacidad para mantener el aire a niveles ideales es para 8 personas durante 6 meses, ya que esta es su capacidad de tripulantes. Puede llevar 15.000 litros de combustible de hidrógeno y oxígeno líquido, adicionalmente utiliza propulsión química y propulsión a base de iones para viajes interplanetarios. Su capacidad de peso es de 12.000 kg principalmente para equipos científicos y suministros. Su velocidad es "
-                                     +speed[0]);
-                 break;
+                System.out.println(
+                        "Elyón tiene un sistema de generación de oxígeno mediante agua y reacciones químicas,  su capacidad para mantener el aire a niveles ideales es para 8 personas durante 6 meses, ya que esta es su capacidad de tripulantes. Puede llevar 15.000 litros de combustible de hidrógeno y oxígeno líquido, adicionalmente utiliza propulsión química y propulsión a base de iones para viajes interplanetarios. Su capacidad de peso es de 12.000 kg principalmente para equipos científicos y suministros. Su velocidad es "
+                                + speed[0]);
+                break;
 
             case 2:
-            System.out.println();
+                System.out.println();
                 System.out.println("~~[Haz elegido " + ships[1] + "]~~");
-                System.out.println("La nave genera oxígeno a partir de tanques de oxígeno comprimidos y un sistema de filtrado para aire recircular, lo que permite mantener el aire en niveles adecuados pata 4 personas durante 30 días, ya que esta es su capacidad de tripulantes. Su propulsión química utiliza hidrógeno y oxígeno líquido con una capacidad de combustible de 4.000 litros de propulsante. La capacidad de peso de la nave es de 10.000 kg principalmente para carga útil. Su velocidad es "
-                                     +speed[1]);
+                System.out.println(
+                        "La nave genera oxígeno a partir de tanques de oxígeno comprimidos y un sistema de filtrado para aire recircular, lo que permite mantener el aire en niveles adecuados pata 4 personas durante 30 días, ya que esta es su capacidad de tripulantes. Su propulsión química utiliza hidrógeno y oxígeno líquido con una capacidad de combustible de 4.000 litros de propulsante. La capacidad de peso de la nave es de 10.000 kg principalmente para carga útil. Su velocidad es "
+                                + speed[1]);
                 break;
 
             case 3:
-            System.out.println();
+                System.out.println();
                 System.out.println("~~[Haz elegido " + ships[2] + "]~~");
-                System.out.println("Deméter cuenta con un sistema de soporte vital avanzado el cual genera oxígeno a partir del agua (electrólisis), puede mantener el aire en niveles óptimos para 6 personas durante 3 meses ya que esa es su capacidad de pasajeros, su capacidad de combustible es de 10.000 litros de hidrógeno y oxígeno líquidos, cuenta con propulsión de iones y combustible nuclear de uranio. Su capacidad de peso es de 5.000 kg (carga útil)" 
-                                        +speed[2]);
+                System.out.println(
+                        "Deméter cuenta con un sistema de soporte vital avanzado el cual genera oxígeno a partir del agua (electrólisis), puede mantener el aire en niveles óptimos para 6 personas durante 3 meses ya que esa es su capacidad de pasajeros, su capacidad de combustible es de 10.000 litros de hidrógeno y oxígeno líquidos, cuenta con propulsión de iones y combustible nuclear de uranio. Su capacidad de peso es de 5.000 kg (carga útil)"
+                                + speed[2]);
                 break;
 
             default:
+                System.err.println("Opcion no valida");
                 break;
         }
+
+        return selectShip;
     }
 
     public static void eventosAletorios() {
@@ -212,22 +236,23 @@ public class ViajeInterPlanetario {
             case 1:
                 System.out.println(
                         "Se ha detectado una fuga de oxígeno en la nave, por favor activa el sistema de sellado automático y revisa los niveles de oxígeno. ");
-
+                break;
             case 2:
                 System.out.println(
                         "El motor principal está sobrecalentado, por favor reduzca la potencia del motor y active el sistema de enfriamiento. ");
-
+                break;
             default:
                 System.out.println("Todos los sistemas de la nave estan funcionando correctamente. ");
 
         }
     }
 
-    public static void solucionEventosAleatorios() {
+    public static void randomEventsSolution() {
 
-        var solucion = read.next();
+        var solution = read.next();
 
         System.out.println("Para solucionar los problemas con la nave de forma automatica, presiona ENTER. ");
 
     }
+
 }
