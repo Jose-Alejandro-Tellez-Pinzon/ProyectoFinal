@@ -15,10 +15,6 @@ public class ViajeInterPlanetario {
     static String[] ships = { "Elyón", "Argos", "Deméter", };
     static double[] speed = { 50.000, 28.000, 30.000 };
 
-    static Random random = new Random();
-    
-    static int[] loading = new int[101];
-    
     static boolean exit = false;
 
     public static void travel() {
@@ -106,15 +102,54 @@ public class ViajeInterPlanetario {
 
     public static void startTravel() {
 
-        System.out.println("""
-                |=====================================|
-                |=  ======> INICIO DEL VIAJE <=====  =|
-                |=====================================|
-                """);
+        Random random = new Random();
+        read.nextLine();
+        for (int progress = 0; progress <= 100; progress += 10) {
+            if (progress == 0) {
+                System.out.println("""
+                        |=====================================|
+                        |=========> INICIO DEL VIAJE <========|
+                        |=====================================|
+                        """);
+            }
+            if (progress == 20) {
+                System.out.println("""
+                        |=====================================|
+                        |=========> VIAJE EN PROCESO <========|
+                        |=====================================|
+                        """);
+            }
+            if (progress == 50) {
+                System.out.println("""
+                        |=====================================|
+                        |=========> MITAD DEL VIAJE <=========|
+                        |=====================================|
+                        """);
 
-        for (int i = 0; i < loading.length; i += 10) {
+                if (random.nextInt(10) < 3) {
+                    System.out.println("""
+                                   [!ALERTA¡] [!ALERTA¡] [!ALERTA¡] [!ALERTA¡] [!ALERTA¡] [!ALERTA¡]
 
-            System.out.print(i + "%-");
+                            ~~~~~[Lluvia de meteoritos] [Lluvia de meteoritos] [Lluvia de meteoritos]~~~~ """);
+
+                    randomEventsSolution();
+                }
+            }
+            if (progress == 70) {
+                System.out.println("""
+                        |=====================================|
+                        |=========> VIAJE EN PROCESO <========|
+                        |=====================================|
+                        """);
+            }
+            if (progress == 100) {
+                System.out.println("""
+                        |=====================================|
+                        |======> HAZ LLEGADO AL DESTINO <=====|
+                        |=====================================|
+                        """);
+
+            }
 
         }
 
@@ -223,36 +258,17 @@ public class ViajeInterPlanetario {
         return selectShip;
     }
 
-    public static void eventosAletorios() {
-
-        int eventoAletorio = random.nextInt(3);
-
-        switch (eventoAletorio) {
-            case 0:
-                System.out.println(
-                        "Un meteorito golpeo la nave, por favor evalue el daño externo y realice una reparación si es necesario. ");
-                break;
-
-            case 1:
-                System.out.println(
-                        "Se ha detectado una fuga de oxígeno en la nave, por favor activa el sistema de sellado automático y revisa los niveles de oxígeno. ");
-                break;
-            case 2:
-                System.out.println(
-                        "El motor principal está sobrecalentado, por favor reduzca la potencia del motor y active el sistema de enfriamiento. ");
-                break;
-            default:
-                System.out.println("Todos los sistemas de la nave estan funcionando correctamente. ");
-
-        }
-    }
-
     public static void randomEventsSolution() {
 
-        var solution = read.next();
+        System.out.println();
+        System.out.println(" _____________________________________________________________________________");
+        System.out.println("|Para solucionar los problemas con la nave de forma automatica, presiona ENTER|");
+        System.out.println("|_____________________________________________________________________________|");
 
-        System.out.println("Para solucionar los problemas con la nave de forma automatica, presiona ENTER. ");
+        var solution = read.nextLine();
 
     }
+
+    
 
 }
